@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Producción - Innovación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Adamina', serif;
+      background: #0d0d0d;
+      color: #f0f0f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fondo animado tipo neón */
+    .animated-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(45deg, #1f1f1f, #2e2e2e, #1c1c1c);
+      background-size: 600% 600%;
+      animation: moveBg 15s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes moveBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 255, 180, 0.2);
+      border-radius: 50%;
+      animation: rise 12s linear infinite;
+      filter: blur(1px);
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 1s; }
+    .particle:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 50%; animation-delay: 3s; }
+    .particle:nth-child(4) { left: 70%; animation-delay: 4s; }
+    .particle:nth-child(5) { left: 85%; animation-delay: 5s; }
+
+    @keyframes rise {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    header {
+      text-align: center;
+      margin: 60px 20px 40px;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      color: #00ffc3;
+      text-shadow: 0 0 10px #00ffc3aa;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0,255,200,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 1.6em;
+      color: #00ffc3;
+      border-bottom: 1px solid #00ffc3;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #e0e0e0;
+    }
+
+    .estrategia {
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(0, 255, 195, 0.07);
+      border-left: 5px solid #00ffc3;
+      border-radius: 8px;
+    }
+
+    .card {
+      background: #161616;
+      border: 1px solid #00ffc3;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 0 20px rgba(0,255,195,0.1);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px rgba(0,255,195,0.2);
+    }
+
+    .card h3 {
+      color: #00ffc3;
+      margin-bottom: 10px;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .navigation a {
+      text-decoration: none;
+      font-size: 1.1em;
+      margin: 0 15px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      background: #00ffc3;
+      color: #000;
+      transition: background 0.3s ease;
+    }
+
+    .navigation a:hover {
+      background: #00c7a5;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="animated-background"></div>
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <header>
+    <h1>Área de Producción</h1>
+  </header>
+
+  <section class="objetivo">
+    <h2>Objetivo</h2>
+    <p>Diseñar, probar e implementar un nuevo formato de pizza en forma de dona, optimizando el proceso de producción para garantizar la calidad, consistencia y eficiencia, logrando una producción inicial de al menos 10 unidades por día.</p>
+  </section>
+
+  <section class="estrategias">
+    <h2>Estrategias</h2>
+    <div class="estrategia"><p><strong>1.</strong> Estandarización de procesos: establecer procedimientos claros para cada pizza.</p></div>
+    <div class="estrategia"><p><strong>2.</strong> Control de tiempos: optimizar desde el pedido hasta la entrega.</p></div>
+    <div class="estrategia"><p><strong>3.</strong> Calidad: selección de insumos frescos y confiables.</p></div>
+    <div class="estrategia"><p><strong>4.</strong> Capacitación: formación técnica en cocina y manipulación higiénica.</p></div>
+    <div class="estrategia"><p><strong>5.</strong> Costos: reducción de desperdicios y aprovechamiento seguro de ingredientes.</p></div>
+  </section>
+
+  <section class="interactive">
+    <div class="card">
+      <h3>Producción Eficiente</h3>
+      <p>Desde el diseño hasta el emplatado, cada paso cuenta para optimizar.</p>
+    </div>
+    <div class="card">
+      <h3>Equipo Capacitado</h3>
+      <p>Formación constante en técnicas higiénicas y de producción rápida.</p>
+    </div>
+    <div class="card">
+      <h3>Control de Calidad</h3>
+      <p>Verificación diaria de ingredientes, técnicas y tiempos.</p>
+    </div>
+    <div class="card">
+      <h3>Menor Desperdicio</h3>
+      <p>Reaprovechamiento planificado sin comprometer la inocuidad.</p>
+    </div>
+  </section>
+
+  <div class="navigation">
+    <a href="Pagina 1.html">Atrás</a>
+    <a href="Sistemas.html">Siguiente</a>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const showOnScroll = () => {
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight * 0.9) {
+          sec.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
+
+</body>
+</html>

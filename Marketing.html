@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Área de Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Adamina', serif;
+      background: linear-gradient(135deg, #f7a1c4, #f5d6e0);
+      color: #333;
+      padding: 40px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .animated-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: moveBackground 30s infinite linear;
+      z-index: -1;
+    }
+    @keyframes moveBackground {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 200% 0, -200% 0; }
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 3em;
+      color: #d81b60;
+      text-shadow: 0 0 10px rgba(216, 27, 96, 0.3);
+    }
+    .objetivo, .estrategias {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      background: rgba(255,255,255,0.8);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .objetivo h2, .estrategias h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: #ad1457;
+    }
+    .objetivo p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+    .estrategia {
+      margin: 20px 0;
+      background: #ffe0ec;
+      padding: 20px;
+      border-left: 6px solid #ec407a;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+    .estrategia:hover {
+      transform: translateX(6px);
+      background: #f8bbd0;
+    }
+    .estrategia p {
+      font-size: 1.1em;
+    }
+    .interactive {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      flex: 1 1 calc(50% - 20px);
+      background: #fff3f7;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      color: #c2185b;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 1.1em;
+    }
+    .navigation {
+      max-width: 900px;
+      margin: 40px auto 0 auto;
+      text-align: center;
+    }
+    .navigation a {
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1em;
+      margin: 0 20px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      background: #ec407a;
+      color: #fff;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .navigation a:hover {
+      background: #d81b60;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-background"></div>
+  <header>
+    <h1>Departamento de Marketing</h1>
+  </header>
+  <section class="objetivo">
+    <h2>Objetivo</h2>
+    <p>Diseñar y ejecutar estrategias de marketing que permitan posicionar y promocionar eficazmente la pizza en forma de dona para personas diabéticas, destacando sus beneficios diferenciales y atrayendo a un público objetivo consciente de su salud.</p>
+  </section>
+  <section class="estrategias">
+    <h2>Estrategias</h2>
+    <div class="estrategia">
+      <p><strong>1.</strong> Mantener una presencia activa en redes sociales con contenido visual y educativo que resalte los beneficios del producto para personas diabéticas, fortaleciendo el posicionamiento de la marca como salubre e innovadora.</p>
+    </div>
+    <div class="estrategia">
+      <p><strong>2.</strong> Implementar una estrategia de marketing de contenido respaldada por expertos en nutrición y salud mediante publicaciones, videos y artículos educativos que generen confianza.</p>
+    </div>
+    <div class="estrategia">
+      <p><strong>3.</strong> Desarrollar campañas de marketing segmentadas que incluyan promociones especiales, programas de fidelización y testimonios de clientes para fortalecer el vínculo con el público objetivo.</p>
+    </div>
+  </section>
+  <section class="interactive">
+    <div class="card">
+      <h3>Redes Sociales Saludables</h3>
+      <p>Publicaciones visuales sobre ingredientes, beneficios y tips para personas diabéticas.</p>
+    </div>
+    <div class="card">
+      <h3>Contenido Profesional</h3>
+      <p>Videos y artículos con respaldo médico para aumentar la credibilidad de la marca.</p>
+    </div>
+    <div class="card">
+      <h3>Segmentación de Audiencia</h3>
+      <p>Promociones dirigidas a públicos con necesidades específicas.</p>
+    </div>
+    <div class="card">
+      <h3>Testimonios Reales</h3>
+      <p>Historias de clientes satisfechos que mejoraron su dieta gracias al producto.</p>
+    </div>
+  </section>
+  <div class="navigation">
+    <a href="Pagina 1.html">Atrás</a>
+    <a href="Produccion.html">Siguiente</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menú Principal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset y base */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      user-select: none;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: url('https://cdn-icons-png.flaticon.com/512/32/32195.png') 16 16, pointer;
+      position: relative;
+    }
+
+    /* Fondo de partículas animadas */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 80%);
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255 255 255 / 0.15);
+      animation: rise 8s linear infinite;
+      opacity: 0.8;
+      filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+      box-shadow: 0 0 8px 2px rgba(255,255,255,0.2);
+      mix-blend-mode: screen;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-20vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Contenedor principal */
+    .container {
+      position: relative;
+      background: linear-gradient(145deg, #1e3c72, #2a5298);
+      border-radius: 30px;
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(255,255,255,0.15);
+      padding: 60px 80px;
+      width: 400px;
+      text-align: center;
+      z-index: 10;
+      animation: fadeInScale 1.2s ease forwards;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Título con neón */
+    h1 {
+      font-weight: 700;
+      margin-bottom: 50px;
+      font-size: 3rem;
+      color: #72e2ff;
+      text-shadow:
+        0 0 8px #72e2ff,
+        0 0 20px #72e2ff,
+        0 0 40px #0ff,
+        0 0 60px #0ff,
+        0 0 80px #0ff;
+      letter-spacing: 3px;
+      user-select: none;
+    }
+
+    /* Botones estilos */
+    button {
+      width: 100%;
+      padding: 18px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0ff;
+      border: 2px solid #0ff;
+      border-radius: 16px;
+      margin: 22px 0;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.3),
+        inset 0 0 8px rgba(0, 255, 255, 0.5);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      animation: buttonEntry 1.2s ease forwards;
+      user-select: none;
+    }
+
+    button#funcionales {
+      animation-delay: 0.4s;
+    }
+    button#comercializacion {
+      animation-delay: 0.7s;
+    }
+
+    @keyframes buttonEntry {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button:hover {
+      transform: translateY(-8px) scale(1.05) perspective(600px) rotateX(5deg);
+      box-shadow:
+        0 0 20px 3px #0ff,
+        inset 0 0 20px 3px #0ff;
+      background: rgba(0, 255, 255, 0.15);
+    }
+
+    button:focus {
+      outline: none;
+      box-shadow:
+        0 0 28px 5px #0ff,
+        inset 0 0 28px 5px #0ff;
+    }
+
+    /* Animación de brillo pulsante */
+    button::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, rgba(0,255,255,0), rgba(0,255,255,0.4), rgba(0,255,255,0));
+      transform: rotate(45deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    button:hover::before {
+      opacity: 1;
+      animation: shine 2s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(100%) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Icono SVG flecha */
+    button svg {
+      width: 26px;
+      height: 26px;
+      fill: #0ff;
+      filter: drop-shadow(0 0 6px rgba(0,255,255,0.6));
+      transition: transform 0.3s ease;
+    }
+
+    button:hover svg {
+      transform: translateX(8px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="particles"></div>
+
+  <div class="container">
+    <h1>Menú Principal</h1>
+    <button id="funcionales" onclick="location.href='Pagina 1.html'">
+      Áreas Funcionales
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+    </button>
+    <button id="comercializacion" onclick="location.href='comercializacion.html'">
+      Comercialización
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" /></svg>
+    </button>
+  </div>
+
+  <script>
+    // Crear partículas dinámicamente
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 30;
+
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('div');
+      p.classList.add('particle');
+      p.style.width = `${Math.random() * 8 + 6}px`;
+      p.style.height = p.style.width;
+      p.style.left = `${Math.random() * 100}vw`;
+      p.style.bottom = `-${Math.random() * 20}vh`;
+      p.style.animationDuration = `${6 + Math.random() * 6}s`;
+      p.style.animationDelay = `${Math.random() * 8}s`;
+      particlesContainer.appendChild(p);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Áreas de la Empresa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Adamina', serif;
+      background: radial-gradient(circle at center, #f0f4ff 0%, #d1d9ff 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    /* Botón menú arriba derecha */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-family: 'Adamina', serif;
+      font-size: 1.1em;
+      background: linear-gradient(135deg, #6a00f4, #8e2de2);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 6px 12px rgba(138, 43, 226, 0.5);
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
+      filter: drop-shadow(0 0 6px #8e2de2);
+      z-index: 30;
+    }
+    .menu-btn:hover {
+      box-shadow:
+        0 10px 25px rgba(138, 43, 226, 0.8);
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 12px #8e2de2);
+    }
+
+    .slider-wrapper {
+      width: 100vw;
+      height: 80vh;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      background: white;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+      position: relative;
+    }
+
+    .slider-container {
+      display: flex;
+      width: calc(100vw * 5); /* 5 áreas */
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .area {
+      flex: 0 0 100vw; /* cada área ocupa 100vw */
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+    }
+
+    /* Colores pastel para cada área */
+    .area:nth-child(1) { background: #e0f7fa; }
+    .area:nth-child(2) { background: #f1f8e9; }
+    .area:nth-child(3) { background: #fff3e0; }
+    .area:nth-child(4) { background: #ede7f6; }
+    .area:nth-child(5) { background: #e3f2fd; }
+
+    .card {
+      background: linear-gradient(145deg, #ffffff, #e6eafc);
+      border-radius: 24px;
+      padding: 40px 60px;
+      max-width: 650px;
+      box-shadow:
+        8px 8px 15px rgba(174, 179, 223, 0.6),
+        -8px -8px 15px rgba(255, 255, 255, 0.7);
+      text-align: center;
+      font-weight: 500;
+      user-select: none;
+      transition: transform 0.3s ease;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        12px 12px 20px rgba(174, 179, 223, 0.8),
+        -12px -12px 20px rgba(255, 255, 255, 0.9);
+    }
+
+    .card h1 {
+      font-size: 3em;
+      color: #4a00e0;
+      margin-bottom: 24px;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 8px rgba(74,0,224,0.5);
+    }
+
+    .card p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3em;
+      color: #555;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    .card button {
+      font-family: 'Adamina', serif;
+      font-size: 1.2em;
+      background: linear-gradient(135deg, #6a00f4, #8e2de2);
+      color: #fff;
+      padding: 14px 38px;
+      border-radius: 40px;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 6px 12px rgba(138, 43, 226, 0.5);
+      transition: box-shadow 0.4s ease, transform 0.3s ease;
+      filter: drop-shadow(0 0 6px #8e2de2);
+      align-self: center;
+      max-width: 200px;
+    }
+    .card button:hover {
+      box-shadow:
+        0 10px 25px rgba(138, 43, 226, 0.8);
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 12px #8e2de2);
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      font-size: 3em;
+      color: #4a00e0;
+      background: #ffffffdd;
+      border-radius: 50%;
+      width: 65px;
+      height: 65px;
+      border: 3px solid #4a00e0;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow:
+        0 6px 12px rgba(74, 0, 224, 0.3);
+      transition: all 0.3s ease;
+      user-select: none;
+      animation: pulse 2.5s infinite;
+      z-index: 20;
+    }
+    .arrow:hover {
+      background: #4a00e0;
+      color: #fff;
+      box-shadow:
+        0 12px 30px rgba(74, 0, 224, 0.6);
+      transform: translateY(-50%) scale(1.15);
+    }
+    /* Botón atrás, parecido a la flecha siguiente pero a la izquierda */
+    .arrow-back {
+      left: 30px;
+      right: auto;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 12px rgba(74, 0, 224, 0.3); }
+      50% { box-shadow: 0 12px 24px rgba(74, 0, 224, 0.6); }
+    }
+
+    .dot-nav {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 14px;
+      z-index: 20;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      background: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 8px #bbb;
+      transition: all 0.4s ease;
+    }
+
+    .dot.active {
+      background: #4a00e0;
+      box-shadow: 0 0 16px #4a00e0;
+      transform: scale(1.3);
+    }
+
+  </style>
+</head>
+<body>
+
+  <button class="menu-btn" onclick="location.href='Menu.html'">Menú</button>
+
+  <div class="slider-wrapper">
+    <div class="slider-container" id="slider">
+      <div class="area">
+        <div class="card">
+          <h1>Recursos Humanos</h1>
+          <p>Gestiona el talento humano de la empresa, promoviendo el desarrollo profesional, bienestar y clima laboral.</p>
+          <button onclick="location.href='RH.html'">Ingresar</button>
+        </div>
+      </div>
+      <div class="area">
+        <div class="card">
+          <h1>Finanzas</h1>
+          <p>Administra y planifica los recursos económicos para asegurar la sostenibilidad y el crecimiento empresarial.</p>
+          <button onclick="location.href='Finanzas.html'">Ingresar</button>
+        </div>
+      </div>
+      <div class="area">
+        <div class="card">
+          <h1>Marketing</h1>
+          <p>Desarrolla estrategias de mercado, publicidad y comunicación para fortalecer la imagen y el alcance de la marca.</p>
+          <button onclick="location.href='Marketing.html'">Ingresar</button>
+        </div>
+      </div>
+      <div class="area">
+        <div class="card">
+          <h1>Producción</h1>
+          <p>Optimiza los procesos de fabricación garantizando productos de calidad, eficientes y alineados a la demanda.</p>
+          <button onclick="location.href='Produccion.html'">Ingresar</button>
+        </div>
+      </div>
+      <div class="area">
+        <div class="card">
+          <h1>Sistemas</h1>
+          <p>Gestiona las plataformas tecnológicas y soluciones digitales para impulsar la innovación y la eficiencia operativa.</p>
+          <button onclick="location.href='Sistemas.html'">Ingresar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="arrow arrow-back" id="backBtn">&#8594;</button>
+  <button class="arrow" id="nextBtn">&#8594;</button>
+
+  <div class="dot-nav">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const dots = document.querySelectorAll('.dot');
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
+    let currentIndex = 0;
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % 5;
+      slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      updateDots();
+    });
+
+    backBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + 5) % 5;
+      slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      updateDots();
+    });
+
+    function updateDots() {
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentIndex);
+      });
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        currentIndex = idx;
+        slider.style.transform = `translateX(-${currentIndex * 100}vw)`;
+        updateDots();
+      });
+    });
+  </script>
+
+</body>
+</html>
